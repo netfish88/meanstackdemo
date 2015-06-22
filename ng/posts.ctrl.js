@@ -2,15 +2,9 @@
  * Created by DavidHong on 2015. 6. 22..
  */
 
-var app = angular.module('app',[]);
-
-/**
- * Created by DavidHong on 2015. 6. 22..
- */
-
 angular.module('app')
 
-    .controller('PostsCtrl',["$scope", "PostsSvc", function ($scope, PostsSvc){
+    .controller('PostsCtrl',function ($scope, PostsSvc){
 
     $scope.addPost = function() {
         if($scope.postBody) {
@@ -30,23 +24,5 @@ angular.module('app')
         $scope.posts = posts
     });
 
-}]);
-
-
-/**
- * Created by DavidHong on 2015. 6. 22..
- */
-
-angular.module('app')
-
-    .service('PostsSvc', ["$http", function($http) {
-
-        this.fetch = function() {
-            return $http.get('/api/posts');
-        };
-
-        this.create = function() {
-            return $http.post('/api/posts',post)
-        }
-}]);
+});
 

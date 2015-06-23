@@ -2,10 +2,10 @@
  * Created by DavidHong on 2015. 6. 21..
  */
 
-var Post = require('../../models/post');
 var router = require('express').Router();
+var Post = require('../../models/post');
 
-router.get('/api/posts',function(req,res,next) {
+router.get('/posts',function(req,res,next) {
     Post.find()
         .sort('-date')
         .exec(
@@ -18,7 +18,7 @@ router.get('/api/posts',function(req,res,next) {
         })
 });
 
-router.post('/api/posts', function(req, res, next) {
+router.post('/posts', function(req, res, next) {
 
     var post = new Post({
         username: req.body.username,

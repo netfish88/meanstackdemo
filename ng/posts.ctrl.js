@@ -15,9 +15,10 @@ angular.module('app')
             }).success(function (post) {
                 $scope.posts.unshift(post);
                 $scope.postBody = null
-            })
+            });
+
+            $scope.postBody = "";
         }
-        $scope.postBody = "";
     };
 
     PostsSvc.fetch().success(function (posts) {

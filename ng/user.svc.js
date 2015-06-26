@@ -5,6 +5,7 @@
 angular.module('app').service('UserSvc', function($http) {
 
     var svc = this;
+
     svc.getUser = function () {
         return $http.get('/api/users',{
             headers: {'X-Auth': this.token }
@@ -16,6 +17,8 @@ angular.module('app').service('UserSvc', function($http) {
             username: username, password: password
         }).then(function(val) {
             svc.token = val.data;
+            $http.defaults.headers.common['X-Auth'] = val.data
+
             return svc.getUser()
         })
     }

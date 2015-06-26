@@ -12,7 +12,7 @@ gulp.task('js', function() {
 		.pipe(concat('app.js'))
         .pipe(ngAnnotate())
 		.pipe(sourcemaps.write())
-        .pipe(uglify())
+//        .pipe(uglify())
         .pipe(gulp.dest('assets'))
 })
 
